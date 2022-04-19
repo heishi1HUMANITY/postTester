@@ -12,7 +12,7 @@ func handler(c *gin.Context) {
 	for key, value := range c.Request.Header {
 		fmt.Printf("%s: %s\n", key, value)
 	}
-	buf := []byte{}
+	buf := make([]byte, 2048)
 	n, _ := c.Request.Body.Read(buf)
 	body := string(buf[:n])
 	fmt.Printf("body: %s", body)
